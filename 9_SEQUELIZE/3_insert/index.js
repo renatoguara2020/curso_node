@@ -20,12 +20,20 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
+app.get('/', function (req, res) {
+  User.findAll({ raw: true })
+    .then((users) => {
+      console.log(users)
+      res.render('home', { users: users })
+    })
+    .catch((err) => console.log(err))
+})
 
 app.get('/users/create', function (req, res) {
   res.render('adduser')
 })
 
-app.post('/users/create', function (req, res) {
+app.post('/users/create', (req, res)=> {
   const name = req.body.name
   const occupation = req.body.occupation
   let newsletter = req.body.newsletter
@@ -39,20 +47,26 @@ app.post('/users/create', function (req, res) {
     newsletter = false;
   }
 
-  User.create({ name, occupation, newsletter, email, idade })
+  User.create({ name, occupation, newsletter, email,idade })
 
   res.redirect('/')
 })
 
-app.get('/', function (req, res) {
-  User.findAll({ raw: true })
-    .then((users) => {
-      console.log(users)
-      res.render('home', { users: users })
+app.get('/users/:id', (req, res) => {
+  const id = req.params.id
+
+  User.findOne({
+    raw: true,
+    where: {
+      id: id,
+    },
+  })
+    .then((user) => {
+      console.log(user)
+      res.render('userViews', { user })
     })
     .catch((err) => console.log(err))
 })
-
 
 // Criar tabelas e rodar o app
 conn
