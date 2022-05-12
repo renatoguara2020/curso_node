@@ -20,9 +20,6 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
-  res.render('home')
-})
 
 app.get('/users/create', function (req, res) {
   res.render('adduser')
@@ -37,14 +34,25 @@ app.post('/users/create', function (req, res) {
 
   if (newsletter === 'on') {
     newsletter = true
+  }else{
+
+    newsletter = false;
   }
 
-  User.create({ name, occupation, newsletter,email,idade })
-
- // console.log(name,occupation,newsletter,email,idade)
+  User.create({ name, occupation, newsletter, email, idade })
 
   res.redirect('/')
 })
+
+app.get('/', function (req, res) {
+  User.findAll({ raw: true })
+    .then((users) => {
+      console.log(users)
+      res.render('home', { users: users })
+    })
+    .catch((err) => console.log(err))
+})
+
 
 // Criar tabelas e rodar o app
 conn

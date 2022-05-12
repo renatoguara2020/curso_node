@@ -25,5 +25,5 @@ const User = db.define('User', {
     allowNull: false,
   }
 })
-// User.sync({force: true})
-module.exports = User
+//User.sync({force: true})
+module.exports = User;
