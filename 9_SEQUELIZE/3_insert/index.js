@@ -68,6 +68,15 @@ app.get('/users/:id', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+app.get('/users/delete/:id',async (req, res) => {
+const id = req.params.id;
+
+ await User.destroy({where: {id: id}})
+
+ res.redirect('/');
+
+});
+
 // Criar tabelas e rodar o app
 conn
   .sync()
