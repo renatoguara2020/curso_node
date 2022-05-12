@@ -77,6 +77,16 @@ const id = req.params.id;
 
 });
 
+app.get('/users/edit/:id',async (req, res) => {
+  const id = req.params.id;
+  
+   const user = await User.findOne({raw:true, where: {id: id}})
+  
+   res.render('/editUser', {user});
+  
+  });
+  
+
 // Criar tabelas e rodar o app
 conn
   .sync()
