@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label">Occupation</label>
-      <input type="text" class="form-control" name="occupatio" value="" >
+      <input type="text" class="form-control" name="occupation" value="" >
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -41,18 +41,10 @@
       </div>
     </div>
     
-    
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" name="newsletter">
-        <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
-        </label>
-        <div class="invalid-feedback">
-          You must choice  before submitting.
-        </div>
-      </div>
-    </div>
+    <div class="form-control form-checkbox">
+    <input type="checkbox" name="newsletter" checked>
+    <label for="newsletter">Enviar promoções?</label>
+  </div>
     <div class="col-12">
       <button class="btn btn-success" type="submit">Submit form</button>
     </div>

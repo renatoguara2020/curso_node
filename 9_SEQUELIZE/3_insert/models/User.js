@@ -13,6 +13,17 @@ const User = db.define('User', {
   newsletter: {
     type: DataTypes.BOOLEAN,
   },
-})
+  email:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    isEmail: true,
+  },
 
+  idade:{
+
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+})
+// User.sync({force: true})
 module.exports = User

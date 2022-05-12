@@ -32,12 +32,16 @@ app.post('/users/create', function (req, res) {
   const name = req.body.name
   const occupation = req.body.occupation
   let newsletter = req.body.newsletter
+  const email = req.body.email
+  const idade = req.body.idade
 
   if (newsletter === 'on') {
     newsletter = true
   }
 
-  User.create({ name, occupation, newsletter })
+  User.create({ name, occupation, newsletter,email,idade })
+
+ // console.log(name,occupation,newsletter,email,idade)
 
   res.redirect('/')
 })
