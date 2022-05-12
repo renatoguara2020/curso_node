@@ -20,7 +20,7 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   User.findAll({ raw: true })
     .then((users) => {
       console.log(users)
@@ -77,12 +77,12 @@ const id = req.params.id;
 
 });
 
-app.get('/users/edit/:id',async (req, res) => {
+app.get('/users/edit/:id', async (req, res) => {
   const id = req.params.id;
   
    const user = await User.findOne({raw:true, where: {id: id}})
   
-   res.render('/editUser', {user});
+   res.render('editUser', {user});
   
   });
   
