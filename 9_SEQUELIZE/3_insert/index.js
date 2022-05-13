@@ -5,7 +5,8 @@ const app = express()
 
 const conn = require('./db/conn')
 
-const User = require('./models/User')
+const User = require('./models/User');
+const Address = require('./models/Address');
 
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
@@ -86,6 +87,38 @@ app.get('/users/edit/:id', async (req, res) => {
   
   });
   
+
+  app.post('/users/update', async(req, res)=> {
+
+const id = req.body.id;
+const name = req.body.name;
+const occupation = req.body.occupation;
+let newsletter = req.body.newsletter;
+const email = req.body.email;
+const idade = req.body.idade;
+
+if(newsletter === 'on'){
+
+  newsletter = true;
+}else{
+
+  newsletter = false;
+}
+
+const userData = {
+id,
+name,
+occupation,
+email,
+idade,
+
+}
+
+
+await User.update(userData, {where: { id: id }})
+
+res.redirect('/');
+  });
 
 // Criar tabelas e rodar o app
 conn
