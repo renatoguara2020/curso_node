@@ -31,7 +31,7 @@ const Address = db.define('Address',{
 
 
 });
-
+//Address.sync({force: true})
 module.exports = Address;
 Address.belongsTo(User);
 Address.sync({force: true});
