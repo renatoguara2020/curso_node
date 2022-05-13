@@ -81,10 +81,17 @@ const id = req.params.id;
 app.get('/users/edit/:id', async (req, res) => {
   const id = req.params.id;
   
-   const user = await User.findOne({include: Address, where: {id: id}})
+   try {
+     
+    const user = await User.findOne({include: Address, where: {id: id}})
   
    res.render('editUser', {user: user.get({ plain: true })});
   
+   } catch (error) {
+
+    console.log(error)
+     
+   }
   });
   
 
@@ -137,7 +144,7 @@ const address ={
    await Address.create(address);
 
    //res.redirect(`/users/edit/${UserId}`)
-   res.render('addressEdit')
+   res.render('home')
   });
 
 // Criar tabelas e rodar o app
