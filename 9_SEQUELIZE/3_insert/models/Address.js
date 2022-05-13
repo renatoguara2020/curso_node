@@ -33,5 +33,6 @@ const Address = db.define('Address',{
 });
 //Address.sync({force: true})
 module.exports = Address;
+User.hasMany(Address)
 Address.belongsTo(User);
-Address.sync({force: true});
+//Address.sync({force: true});

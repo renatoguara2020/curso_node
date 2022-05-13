@@ -81,9 +81,9 @@ const id = req.params.id;
 app.get('/users/edit/:id', async (req, res) => {
   const id = req.params.id;
   
-   const user = await User.findOne({raw:true, where: {id: id}})
+   const user = await User.findOne({include: Address, where: {id: id}})
   
-   res.render('editUser', {user});
+   res.render('editUser', {user: user.get({ plain: true })});
   
   });
   
@@ -118,6 +118,26 @@ idade,
 await User.update(userData, {where: { id: id }})
 
 res.redirect('/');
+  });
+
+  app.post('/address/create',async (req, res)=>{
+
+const UserId = req.body.UserId;
+const street = req.body.street;
+const number = req.body.number;
+const city = req.body.city;
+
+const address ={
+
+  UserId,
+  street,
+  number,
+  city,
+}
+   await Address.create(address);
+
+   //res.redirect(`/users/edit/${UserId}`)
+   res.render('addressEdit')
   });
 
 // Criar tabelas e rodar o app
