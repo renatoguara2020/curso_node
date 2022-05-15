@@ -1,3 +1,9 @@
+{{!-- <html>
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head> 
+<body>   
 <h1>Criar produto</h1>
 <form action="/create" method="POST">
     <div class="form-control">
@@ -18,3 +24,58 @@
     </div>
     <input type="submit" class="btn" value="Enviar">
 </form>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
+
+===================================================================================================================== --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+ <form class="row g-3" action="/create" method="post">
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Name:</label>
+    <input type="text" class="form-control" name="name" value="" >
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Price:</label>
+    <input type="text" class="form-control" name="price" value="" >
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Description:</label>
+    <div class="input-group has-validation">
+      <textarea class="form-control" type="text" class="form-control" name="description"></textarea>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom03" class="form-label">Image:</label>
+    <input type="text" class="form-control" name="image" placeholder="Insira a URL da Imagem" >
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>    
+</body>
+</html>
