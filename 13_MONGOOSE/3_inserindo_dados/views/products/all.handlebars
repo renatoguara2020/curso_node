@@ -12,3 +12,44 @@
     </div>
   {{/each}}
 </div>
+
+
+==============================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID:</th>
+      <th scope="col">Name:</th>
+      <th scope="col">Price:</th>
+      <th scope="col">Descrição:</th>
+      <th scope="col">URL Image:</th>
+      <th scope="col">Detalhes:</th>
+      <th scope="col">Editar:</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <th>{{this._id}}</th>
+      <td>{{this.product.name}}</td>
+      <td>{{this.price}}</td>
+      <td>{{this.description}}</td>
+      <td><img src="{{this.image}}" alt="{{this.name}}"></td>
+      <a href="/{{this._id}}">Detalhes</a>
+      <a href="/edit/{{this._id}}">Editar</a>
+    </tr>
+    
+  </tbody>
+   {{/each}}
+</table>
+</body>
+</html>
